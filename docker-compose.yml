@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    container_name: tcc_web
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html/
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    container_name: tcc_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_tcc
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./banco.sql:/docker-entrypoint-initdb.d/banco.sql
+      - dados_mysql:/var/lib/mysql
+volumes:
+  dados_mysql:
