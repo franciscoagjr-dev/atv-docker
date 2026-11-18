@@ -1,6 +1,6 @@
 <?php
 // Configuração de ligação à base de dados para ambiente local / XAMPP / Git
-$host = 'localhost';
+$host = '127.0.0.1';
 $usuario = 'root';
 $senha = ''; // Deixar vazio se usar XAMPP padrão
 $banco = 'db_ecopontos';
